@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.log.mapper.UserInfoMapper">
+
+    <resultMap id="userInfoMapper" type="com.log.entity.UserInfo">
+        <result column="id" property="id"/>
+        <result column="mobile" property="mobile"/>
+        <result column="real_name" property="realName"/>
+        <result column="last_login_time" property="lastLoginTime"/>
+        <result column="created_at" property="createdAt"/>
+    </resultMap>
+
+
+    <select id="getList" resultMap="userInfoMapper">
+        select * from user_info
+    </select>
+
+    <select id="getById" resultMap="userInfoMapper">
+        select * from user_info where id = #{id}
+    </select>
+
+</mapper>
